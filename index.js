@@ -17,6 +17,13 @@ const directional_light = new THREE.DirectionalLight(0xff00ff,1)
 ambient_light.add(directional_light);
 scene.add(ambient_light)
 
+
+//creating the area over which the objects will be getting placed
+const geometry_area = new THREE.BoxGeometry(100,0,100)
+const material_area = new THREE.MeshPhongMaterial({color: "white"})
+const area = new THREE.Mesh(geometry_area, material_area);
+scene.add(area);
+
 //To create a cube, we need a BoxGeometry. This is an object that 
 //contains all the points (vertices) and fill (faces) of the cube.
 const geometry = new THREE.BoxGeometry( 1, 1, 1 ); //L,B,H
@@ -33,7 +40,10 @@ const cube = new THREE.Mesh( geometry, material );
 // will be added to the coordinates (0,0,0)
 scene.add( cube );
 
-camera.position.z = 5;
+
+camera.position.x = 0;
+camera.position.y = 5;
+camera.position.z = 10;
 
 
 
