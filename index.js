@@ -18,6 +18,8 @@ ambient_light.add(directional_light);
 scene.add(ambient_light)
 
 
+
+
 //creating the area over which the objects will be getting placed
 const geometry_area = new THREE.BoxGeometry(100,0,100)
 const material_area = new THREE.MeshPhongMaterial({color: "white"})
@@ -40,10 +42,15 @@ const cube = new THREE.Mesh( geometry, material );
 // will be added to the coordinates (0,0,0)
 scene.add( cube );
 
+const geometry_cyl = new THREE.CylinderGeometry( 5, 5, 20, 32 );
+const material_cyl = new THREE.MeshPhongMaterial( {color: "yellow"} );
+const cylinder = new THREE.Mesh( geometry_cyl, material_cyl );
+scene.add( cylinder );
+
 
 camera.position.x = 0;
 camera.position.y = 5;
-camera.position.z = 10;
+camera.position.z = 50;
 
 
 
@@ -61,6 +68,13 @@ function animate() {
     cube.rotation.x += 0.03;
     cube.rotation.y += 0.03;
     cube.rotation.z += 0.03;
+
+    cylinder.position.x = -10
+    cylinder.position.y = 11
+
+    cylinder.rotation.y += 0.03
+    cylinder.rotation.x += 0.03
+    // cylinder.rotation.z += 0.03
 
     //to move the cube
     // camera.position.x +=0.01 // cube moves to left side
