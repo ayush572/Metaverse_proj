@@ -3,18 +3,24 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+
 
 contract Metaverse is ERC721URIStorage {
-
+    address private _owner;
     //counters library to increase the nft counter
     using Counters for Counters.Counter;
     Counters.Counter private supply; //to keep on counting the objects that are being created.
     uint public maxSupply = 100; //max nft that can be minted from the website
     uint public cost = 1 ether; //cost of the nft that will be minted
 
-    constructor() ERC721("Meta", "MTA") {}
+    constructor() ERC721("Meta", "MTA") {
+        _owner = msg.sender;
+    }
 
+    modifier onlyOwner {
+        require(msg.sender == _owner, "Access only for owner");
+        _;
+    }
 
     //now the nft that we will be minting has a lot of different properties with it like
     //width, height, depth, etc...
@@ -71,7 +77,7 @@ contract Metaverse is ERC721URIStorage {
 
 
     //from Ownable.sol in the access library, we directly have the inbuilt functions for the same, for the owner
-    function withdraw() external payable{
+    function withdraw() external payable onlyOwner{
         //external functions cannot be called internally 
         //used to deal with large amount of array data
         uint256 balance = address(this).balance; //getting the balance of the smart contract
