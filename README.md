@@ -10,3 +10,27 @@
 
 **These objects will be created in the form of NFT, as when they will be created, their transcation will be minted on the blockchain, and will be permanently stored with the user or the person who has minted that NFT. Each individual 
 user will be having its own separate NFT that will be saved in his account as he has minted that NFT.**
+
+**1) Entering the data, the type of nft to be made.**
+
+![image](https://user-images.githubusercontent.com/77055883/224545397-f7390d34-0ac6-432f-a303-b5dac587bcab.png)
+
+**2) Minting the nft and completing the required transcation as well**
+![image](https://user-images.githubusercontent.com/77055883/224545502-ed50cdc7-cd90-4080-a320-2cc39a250038.png)
+
+**3) After paying the amount the transcation gets confirmed and NFT is minted!**
+![image](https://user-images.githubusercontent.com/77055883/224545604-bb8d45fb-19ba-49a7-aba7-ff6ea77d7bc0.png)
+
+**4) Reloading the browser, we can see tat the NFT is minted at its position**
+![image](https://user-images.githubusercontent.com/77055883/224545863-80f99599-a01b-4658-b16e-b3cc2c9dae8d.png)
+
+## **We can see the minted NFT by moving the camera from various locations**
+![image](https://user-images.githubusercontent.com/77055883/224545948-bd0bd2ba-4a7e-4f79-a4ab-cf1c6c6955dd.png)
+![image](https://user-images.githubusercontent.com/77055883/224545952-6cadcd88-8c5d-49e5-8b55-7f316652a0d1.png)
+
+
+
+
+
+
+
