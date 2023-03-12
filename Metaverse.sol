@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-//deployed smart contract addr : 0x088101281Fd311bDc38FCBdF706F93Ff72046CDF
+//deployed smart contract addr : 0x9b2aDf6f72622bb513772EEE1aE47589e5b87b70
 contract Metaverse is ERC721URIStorage {
     address private _owner;
     //counters library to increase the nft counter

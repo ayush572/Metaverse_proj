@@ -18,7 +18,7 @@ const polygon = new Promise((res,rej) => {
         // to interact with the Ethereum blockchain.
         let web3 = new Web3(window.ethereum);
         // create a contract instance
-        let contract = new web3.eth.Contract(abi, "0x088101281Fd311bDc38FCBdF706F93Ff72046CDF");
+        let contract = new web3.eth.Contract(abi, "0x9b2aDf6f72622bb513772EEE1aE47589e5b87b70");
 
         //to see to which acc the metamask is connected to
         let acc = await web3.eth.requestAccounts(); //gives array of acc
@@ -41,7 +41,7 @@ const polygon = new Promise((res,rej) => {
         web3.eth.requestAccounts().then((accs)=>{
             contract.methods.totalSupply().call({from: accs[0]})
             .then((supply)=>{
-                contract.methods.getObjects().call({from: accs[0]})
+                contract.methods.getOwnerObjects().call({from: accs[0]})
                 .then((data)=>{
                     res({supply: supply, nft: data})
                 })

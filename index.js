@@ -144,13 +144,14 @@ async function mint(){
     // to interact with the Ethereum blockchain.
     let web3 = new Web3(window.ethereum);
     // create a contract instance
-    let contract = new web3.eth.Contract(abi, "0x088101281Fd311bDc38FCBdF706F93Ff72046CDF");
+    let contract = new web3.eth.Contract(abi, "0x1Eaa826Eb33A48c8f6e8b5bE2A57d6EE4ff96b66");
 
     // const etherValue = '0.0000000000000001';
     // const weiValue = web3.utils.toWei(etherValue, 'ether');
     
     //to see to which acc the metamask is connected to
-    let accs = await web3.eth.requestAccounts(); //gives array of acc
+    let accs = await web3.eth.requestAccounts()
+    console.log(accs[0]); //gives array of acc
     contract.methods.mintNFT(nft_nm, nft_w, nft_h, nft_d, nft_x, nft_y, nft_z)
     //using the send method because now we are sending the data to the
     //smart contract rather than taking the data from it. So, send()
@@ -170,7 +171,6 @@ polygon.then((result)=>{
 
     //looping through the array and printing everying in the array
     result.nft.forEach((obj,i)=>{
-
         //all the nft's in the array will be displayed on the screen
         const geometry = new THREE.ConeGeometry( obj.w, obj.h, obj.d );
         const material = new THREE.MeshPhongMaterial( {color: "blue"} );
