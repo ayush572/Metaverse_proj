@@ -1,4 +1,5 @@
 import Movements from './movement.js';
+import polygon from './src/abi/web3.js';
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xff0000)
@@ -29,29 +30,29 @@ scene.add(area);
 
 //To create a cube, we need a BoxGeometry. This is an object that 
 //contains all the points (vertices) and fill (faces) of the cube.
-const geometry = new THREE.BoxGeometry( 10, 10, 10 ); //L,B,H
+// const geometry = new THREE.BoxGeometry( 10, 10, 10 ); //L,B,H
 
-//MeshBasicMaterial to tap onto the properties of the object
-const material = new THREE.MeshPhongMaterial( { color: 0xff00ff } );
+// //MeshBasicMaterial to tap onto the properties of the object
+// const material = new THREE.MeshPhongMaterial( { color: 0xff00ff } );
 
-//A mesh is an object that takes a geometry, and applies a 
-//material to it, which we then can insert to our scene, and 
-//move freely around.
-const cube = new THREE.Mesh( geometry, material );
+// //A mesh is an object that takes a geometry, and applies a 
+// //material to it, which we then can insert to our scene, and 
+// //move freely around.
+// const cube = new THREE.Mesh( geometry, material );
 
-// By default, when we call scene.add(), the thing we add 
-// will be added to the coordinates (0,0,0)
-scene.add( cube );
+// // By default, when we call scene.add(), the thing we add 
+// // will be added to the coordinates (0,0,0)
+// scene.add( cube );
 
-const geometry_cyl = new THREE.CylinderGeometry( 5, 5, 20, 32 );
-const material_cyl = new THREE.MeshPhongMaterial( {color: "yellow"} );
-const cylinder = new THREE.Mesh( geometry_cyl, material_cyl );
-scene.add( cylinder );
+// const geometry_cyl = new THREE.CylinderGeometry( 5, 5, 20, 32 );
+// const material_cyl = new THREE.MeshPhongMaterial( {color: "yellow"} );
+// const cylinder = new THREE.Mesh( geometry_cyl, material_cyl );
+// scene.add( cylinder );
 
-const geometry_cone = new THREE.ConeGeometry( 5, 20, 3 );
-const material_cone = new THREE.MeshPhongMaterial( {color: "blue"} );
-const cone = new THREE.Mesh( geometry_cone, material_cone );
-scene.add( cone );
+// const geometry_cone = new THREE.ConeGeometry( 5, 20, 3 );
+// const material_cone = new THREE.MeshPhongMaterial( {color: "blue"} );
+// const cone = new THREE.Mesh( geometry_cone, material_cone );
+// scene.add( cone );
 
 camera.position.x = 0;
 camera.position.y = 5;
@@ -70,23 +71,23 @@ function animate() {
     //tab, hence not wasting their precious processing power and battery.
     requestAnimationFrame( animate ); //rerenders 60times in 1 sec
 
-    cube.rotation.x += 0.03;
-    cube.rotation.y += 0.03;
-    cube.rotation.z += 0.03;
+    // cube.rotation.x += 0.03;
+    // cube.rotation.y += 0.03;
+    // cube.rotation.z += 0.03;
 
-    cube.position.y = 7
+    // cube.position.y = 7
 
-    cylinder.position.x = -20
-    cylinder.position.y = 10
+    // cylinder.position.x = -20
+    // cylinder.position.y = 10
 
-    cylinder.rotation.y += 0.03
-    cylinder.rotation.x += 0.03
+    // cylinder.rotation.y += 0.03
+    // cylinder.rotation.x += 0.03
 
-    cone.position.x = 20
-    cone.position.y = 10
+    // cone.position.x = 20
+    // cone.position.y = 10
 
-    cone.rotation.y += 0.03
-    cone.rotation.x += 0.03
+    // cone.rotation.y += 0.03
+    // cone.rotation.x += 0.03
     // cylinder.rotation.z += 0.03
 
     //to move the cube
@@ -118,3 +119,17 @@ function animate() {
 }
 
 animate();
+
+polygon.then((result)=>{
+
+    //looping through the array and printing everying in the array
+    result.nft.forEach((obj,i)=>{
+
+        //all the nft's in the array will be displayed on the screen
+        const geometry = new THREE.ConeGeometry( obj.w, obj.h, obj.d );
+        const material = new THREE.MeshPhongMaterial( {color: "blue"} );
+        const nft = new THREE.Mesh( geometry, material );
+        scene.add( nft );
+        nft.position.set(obj.x, obj.y, obj.z)
+    })
+})

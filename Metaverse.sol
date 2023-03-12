@@ -4,14 +4,14 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-
+//deployed smart contract addr : 0x088101281Fd311bDc38FCBdF706F93Ff72046CDF
 contract Metaverse is ERC721URIStorage {
     address private _owner;
     //counters library to increase the nft counter
     using Counters for Counters.Counter;
     Counters.Counter private supply; //to keep on counting the objects that are being created.
     uint public maxSupply = 100; //max nft that can be minted from the website
-    uint public cost = 1 ether; //cost of the nft that will be minted
+    uint public cost = 1 wei; //cost of the nft that will be minted
 
     constructor() ERC721("Meta", "MTA") {
         _owner = msg.sender;
