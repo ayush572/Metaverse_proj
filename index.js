@@ -1,5 +1,6 @@
 import Movements from './movement.js';
 import polygon from './src/abi/web3.js';
+import abi from './src/abi/abi.json' assert {type: "json"}
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xff0000)
@@ -119,6 +120,51 @@ function animate() {
 }
 
 animate();
+
+const btn = document.querySelector('#mint');
+btn.addEventListener('click', mint);
+async function mint(){
+    //here tapping into the values of the nft's 
+    let nft_nm = document.querySelector("#nft_name").value;
+    let nft_w = document.querySelector("#nft_width").value;
+    let nft_h = document.querySelector("#nft_height").value;
+    let nft_d = document.querySelector("#nft_depth").value;
+    let nft_x = document.querySelector("#nft_x").value;
+    let nft_y = document.querySelector("#nft_y").value;
+    let nft_z = document.querySelector("#nft_z").value;
+
+
+    if(typeof(window.ethereum) == "undefined"){
+        rej("You should install metamask");
+    }
+
+    // create a new web3 instance using the injected ethereum provider
+    // here the injected web3 provider is Metamask
+    // you are telling the constructor to use the injected Web3 provider 
+    // to interact with the Ethereum blockchain.
+    let web3 = new Web3(window.ethereum);
+    // create a contract instance
+    let contract = new web3.eth.Contract(abi, "0x088101281Fd311bDc38FCBdF706F93Ff72046CDF");
+
+    // const etherValue = '0.0000000000000001';
+    // const weiValue = web3.utils.toWei(etherValue, 'ether');
+    
+    //to see to which acc the metamask is connected to
+    let accs = await web3.eth.requestAccounts(); //gives array of acc
+    contract.methods.mintNFT(nft_nm, nft_w, nft_h, nft_d, nft_x, nft_y, nft_z)
+    //using the send method because now we are sending the data to the
+    //smart contract rather than taking the data from it. So, send()
+    //method will send the value from frontend to the smart contract
+    .send({
+        from : accs[0],
+        value: "10"
+    }).then((data)=>{
+        console.log("NFT Minted")
+    })
+    ; //gives array of acc
+    
+
+}
 
 polygon.then((result)=>{
 
