@@ -25,7 +25,7 @@ user will be having its own separate NFT that will be saved in his account as he
 ![image](https://user-images.githubusercontent.com/77055883/224545863-80f99599-a01b-4658-b16e-b3cc2c9dae8d.png)
 
 ## **We can see the minted NFT by moving the camera from various locations**
-![image](https://user-images.githubusercontent.com/77055883/224545948-bd0bd2ba-4a7e-4f79-a4ab-cf1c6c6955dd.png)
+![image](https://user-images.githubusercontent.com/77055883/224545993-a36f763c-76cb-40a1-848a-80d659e59754.png)
 ![image](https://user-images.githubusercontent.com/77055883/224545952-6cadcd88-8c5d-49e5-8b55-7f316652a0d1.png)
 
 
