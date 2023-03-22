@@ -21,7 +21,7 @@ user will be having its own separate NFT that will be saved in his account as he
 **3) After paying the amount the transcation gets confirmed and NFT is minted!**
 ![image](https://user-images.githubusercontent.com/77055883/224545604-bb8d45fb-19ba-49a7-aba7-ff6ea77d7bc0.png)
 
-**4) Reloading the browser, we can see tat the NFT is minted at its position**
+**4) Reloading the browser, we can see that the NFT is minted at its position**
 ![image](https://user-images.githubusercontent.com/77055883/224545863-80f99599-a01b-4658-b16e-b3cc2c9dae8d.png)
 
 ## **We can see the minted NFT by moving the camera from various locations**
